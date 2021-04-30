@@ -3,16 +3,19 @@ pipeline {
     
     stages {
        stage('Clone') {
-          git branch: 'main', url: 'https://github.com/acheriat/jenkins-java.git'
-          echo 'Coloning Dev Branch ....'
-      }    
+           steps { 
+              echo 'Coloning main Branch ....'
+            } 
+       }    
        stage('Build') {
-         sh 'javac Main.java'
-         echo 'Building Main Branch ... (Java class)'
+         steps { 
+             echo 'Building main Branch ....'
+         }
        }
        stage('Run') {
-          sh 'java Main'
-          echo 'Runing Main Branch ... (Java Main)'
+          steps { 
+             echo 'Runing main Branch ....'
+         }
        }
    }
 }
